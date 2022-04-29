@@ -6,7 +6,14 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreCreateAction,
+  useNavigateAction,
+  useStateMutationAction,
+} from "@aws-amplify/ui-react/internal";
+import { Fox } from "../models";
+import { schema } from "../models/schema";
 import {
   Button,
   Divider,
@@ -18,7 +25,29 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function UINewFox(props) {
-  const { overrides, ...rest } = props;
+  const { fx, overrides, ...rest } = props;
+  const [
+    textFieldThreeTwoFourSevenSevenNineEightValue,
+    setTextFieldThreeTwoFourSevenSevenNineEightValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldThreeTwoFourSevenSevenNineSevenValue,
+    setTextFieldThreeTwoFourSevenSevenNineSevenValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldThreeTwoFourSevenSevenNineNineValue,
+    setTextFieldThreeTwoFourSevenSevenNineNineValue,
+  ] = useStateMutationAction("");
+  const buttonOnClick = useDataStoreCreateAction({
+    fields: {
+      fid: textFieldThreeTwoFourSevenSevenNineEightValue,
+      name: textFieldThreeTwoFourSevenSevenNineSevenValue,
+      src: textFieldThreeTwoFourSevenSevenNineNineValue,
+    },
+    model: Fox,
+    schema: schema,
+  });
+  const buttonOnMouseLeave = useNavigateAction({ type: "url", url: "/" });
   return (
     <Flex
       gap="16px"
@@ -126,6 +155,7 @@ export default function UINewFox(props) {
             position="relative"
             borderRadius="160px"
             padding="0px 0px 0px 0px"
+            src={fx?.src}
             {...getOverrideProps(overrides, "image")}
           ></Image>
         </Flex>
@@ -155,6 +185,12 @@ export default function UINewFox(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldThreeTwoFourSevenSevenNineSevenValue}
+            onChange={(event) => {
+              setTextFieldThreeTwoFourSevenSevenNineSevenValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField3247797")}
           ></TextField>
           <TextField
@@ -173,6 +209,12 @@ export default function UINewFox(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldThreeTwoFourSevenSevenNineEightValue}
+            onChange={(event) => {
+              setTextFieldThreeTwoFourSevenSevenNineEightValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField3247798")}
           ></TextField>
           <TextField
@@ -191,6 +233,12 @@ export default function UINewFox(props) {
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldThreeTwoFourSevenSevenNineNineValue}
+            onChange={(event) => {
+              setTextFieldThreeTwoFourSevenSevenNineNineValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField3247799")}
           ></TextField>
         </Flex>
@@ -218,6 +266,12 @@ export default function UINewFox(props) {
           isDisabled={false}
           variation="primary"
           children="Save"
+          onClick={() => {
+            buttonOnClick();
+          }}
+          onMouseLeave={() => {
+            buttonOnMouseLeave();
+          }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>

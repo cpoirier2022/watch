@@ -9,11 +9,13 @@ import React from "react";
 import {
   getOverrideProps,
   useAuthSignOutAction,
+  useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
   const iconOnClick = useAuthSignOutAction({ global: false });
+  const iconOnMouseOut = useNavigateAction({ type: "url", url: `${""}${"/"}` });
   return (
     <Flex
       gap="20px"
@@ -683,6 +685,9 @@ export default function NavBar(props) {
           padding="0px 0px 0px 0px"
           onClick={() => {
             iconOnClick();
+          }}
+          onMouseOut={() => {
+            iconOnMouseOut();
           }}
           {...getOverrideProps(overrides, "Icon")}
         >

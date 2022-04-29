@@ -6,8 +6,11 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Fox } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type UINewFoxProps = React.PropsWithChildren<Partial<FlexProps> & {
+    fx?: Fox;
+} & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
 export default function UINewFox(props: UINewFoxProps): React.ReactElement;
