@@ -5,12 +5,12 @@
  **************************************************************************/
 
 import React from "react";
-import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Fox } from "../models";
+import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { FlexProps } from "@aws-amplify/ui-react";
-export declare type UIEditFoxProps = React.PropsWithChildren<Partial<FlexProps> & {
+export declare type CardBProps = React.PropsWithChildren<Partial<FlexProps> & {
     fx?: Fox;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function UIEditFox(props: UIEditFoxProps): React.ReactElement;
+export default function CardB(props: CardBProps): React.ReactElement;

@@ -6,11 +6,14 @@
 
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
-import { Fox } from "../models";
-import { FlexProps } from "@aws-amplify/ui-react";
-export declare type UIEditFoxProps = React.PropsWithChildren<Partial<FlexProps> & {
-    fx?: Fox;
+import { CollectionProps } from "@aws-amplify/ui-react";
+export declare type UIFoxCardCollectionProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+    items?: any[];
+    overrideItems?: ({ item: any, index: number }: {
+        item: any;
+        index: any;
+    }) => Record<string, string>;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function UIEditFox(props: UIEditFoxProps): React.ReactElement;
+export default function UIFoxCardCollection(props: UIFoxCardCollectionProps): React.ReactElement;

@@ -6,7 +6,13 @@
 
 /* eslint-disable */
 import React from "react";
-import { getOverrideProps } from "@aws-amplify/ui-react/internal";
+import {
+  getOverrideProps,
+  useDataStoreUpdateAction,
+  useStateMutationAction,
+} from "@aws-amplify/ui-react/internal";
+import { Fox } from "../models";
+import { schema } from "../models/schema";
 import {
   Button,
   Divider,
@@ -18,7 +24,29 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function UIEditFox(props) {
-  const { overrides, ...rest } = props;
+  const { fx, overrides, ...rest } = props;
+  const [
+    textFieldThreeTwoFourSevenSevenOneEightValue,
+    setTextFieldThreeTwoFourSevenSevenOneEightValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldThreeTwoFourSevenSevenOneSevenValue,
+    setTextFieldThreeTwoFourSevenSevenOneSevenValue,
+  ] = useStateMutationAction("");
+  const [
+    textFieldThreeTwoFourSevenSevenOneNineValue,
+    setTextFieldThreeTwoFourSevenSevenOneNineValue,
+  ] = useStateMutationAction("");
+  const buttonOnClick = useDataStoreUpdateAction({
+    fields: {
+      fid: textFieldThreeTwoFourSevenSevenOneEightValue,
+      name: textFieldThreeTwoFourSevenSevenOneSevenValue,
+      src: textFieldThreeTwoFourSevenSevenOneNineValue,
+    },
+    id: fx?.id,
+    model: Fox,
+    schema: schema,
+  });
   return (
     <Flex
       gap="16px"
@@ -126,6 +154,7 @@ export default function UIEditFox(props) {
             position="relative"
             borderRadius="160px"
             padding="0px 0px 0px 0px"
+            src={fx?.src}
             {...getOverrideProps(overrides, "image")}
           ></Image>
         </Flex>
@@ -150,11 +179,17 @@ export default function UIEditFox(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="name"
-            placeholder="John Doe"
+            placeholder={fx?.name}
             size="default"
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldThreeTwoFourSevenSevenOneSevenValue}
+            onChange={(event) => {
+              setTextFieldThreeTwoFourSevenSevenOneSevenValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField3247717")}
           ></TextField>
           <TextField
@@ -168,11 +203,17 @@ export default function UIEditFox(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="id"
-            placeholder="Seattle, WA"
+            placeholder={fx?.fid}
             size="default"
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldThreeTwoFourSevenSevenOneEightValue}
+            onChange={(event) => {
+              setTextFieldThreeTwoFourSevenSevenOneEightValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField3247718")}
           ></TextField>
           <TextField
@@ -186,11 +227,17 @@ export default function UIEditFox(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="image"
-            placeholder="john.doe@awsamplify.com"
+            placeholder={fx?.src}
             size="default"
             isDisabled={false}
             labelHidden={false}
             variation="default"
+            value={textFieldThreeTwoFourSevenSevenOneNineValue}
+            onChange={(event) => {
+              setTextFieldThreeTwoFourSevenSevenOneNineValue(
+                event.target.value
+              );
+            }}
             {...getOverrideProps(overrides, "TextField3247719")}
           ></TextField>
         </Flex>
@@ -218,6 +265,9 @@ export default function UIEditFox(props) {
           isDisabled={false}
           variation="primary"
           children="Save"
+          onClick={() => {
+            buttonOnClick();
+          }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>
