@@ -10,6 +10,11 @@
       "StackName": "amplify-skl-staging-175318",
       "StackId": "arn:aws:cloudformation:us-east-1:735684901772:stack/amplify-skl-staging-175318/406b8830-c7e5-11ec-bc84-125657df9ead",
       "AmplifyAppId": "d11xqhlbryfbo7"
+    },
+    "categories": {
+      "auth": {
+        "skl": {}
+      }
     }
   }
 }
