@@ -68,8 +68,13 @@ export default function CardB(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
+<<<<<<< HEAD
             children={fx?.name}
             {...getOverrideProps(overrides, "Name")}
+=======
+            children="$99 USD"
+            {...getOverrideProps(overrides, "$99 USD")}
+>>>>>>> 08a0f6c4d58cad41031a09474889659796e303a5
           ></Text>
           <Text
             fontFamily="Inter"
@@ -88,8 +93,32 @@ export default function CardB(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
+<<<<<<< HEAD
             children={fx?.fid}
             {...getOverrideProps(overrides, "FID0658")}
+=======
+            children="4bds 3 ba 2,530 sqft - Active"
+            {...getOverrideProps(overrides, "4bds 3 ba 2,530 sqft - Active")}
+          ></Text>
+          <Text
+            fontFamily="Inter"
+            fontSize="14px"
+            fontWeight="400"
+            color="rgba(48,64,80,1)"
+            lineHeight="24px"
+            textAlign="left"
+            display="flex"
+            direction="column"
+            justifyContent="flex-start"
+            shrink="0"
+            alignSelf="stretch"
+            objectFit="cover"
+            position="relative"
+            padding="0px 0px 0px 0px"
+            whiteSpace="pre-wrap"
+            children="832 34th Ave, Seattle, WA 98122"
+            {...getOverrideProps(overrides, "832 34th Ave, Seattle, WA 98122")}
+>>>>>>> 08a0f6c4d58cad41031a09474889659796e303a5
           ></Text>
         </Flex>
       </Flex>

@@ -9,7 +9,10 @@ import React from "react";
 import {
   getOverrideProps,
   useDataStoreUpdateAction,
+<<<<<<< HEAD
   useNavigateAction,
+=======
+>>>>>>> 08a0f6c4d58cad41031a09474889659796e303a5
   useStateMutationAction,
 } from "@aws-amplify/ui-react/internal";
 import { Fox } from "../models";
@@ -48,7 +51,10 @@ export default function UIEditFox(props) {
     model: Fox,
     schema: schema,
   });
+<<<<<<< HEAD
   const buttonOnMouseLeave = useNavigateAction({ type: "url", url: "/" });
+=======
+>>>>>>> 08a0f6c4d58cad41031a09474889659796e303a5
   return (
     <Flex
       gap="16px"
@@ -270,9 +276,12 @@ export default function UIEditFox(props) {
           onClick={() => {
             buttonOnClick();
           }}
+<<<<<<< HEAD
           onMouseLeave={() => {
             buttonOnMouseLeave();
           }}
+=======
+>>>>>>> 08a0f6c4d58cad41031a09474889659796e303a5
           {...getOverrideProps(overrides, "Button")}
         ></Button>
       </Flex>
