@@ -9,15 +9,12 @@ import React from "react";
 import {
   getOverrideProps,
   useAuth,
-  useAuthSignOutAction,
   useNavigateAction,
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function NavBar(props) {
   const { overrides, ...rest } = props;
   const authAttributes = useAuth().user?.attributes ?? {};
-  const imageOnClick = useAuthSignOutAction({ global: false });
-  const imageOnMouseUp = useNavigateAction({ type: "url", url: "/" });
   const frameThreeTwoOneOnClick = useNavigateAction({ type: "url", url: "/" });
   const textOnClick = useNavigateAction({ type: "url", url: "/" });
   const frameOnClick = useNavigateAction({ type: "url", url: "/new" });
@@ -43,12 +40,6 @@ export default function NavBar(props) {
         borderRadius="160px"
         padding="0px 0px 0px 0px"
         src={authAttributes["profile"]}
-        onClick={() => {
-          imageOnClick();
-        }}
-        onMouseUp={() => {
-          imageOnMouseUp();
-        }}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
