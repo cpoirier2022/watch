@@ -5,8 +5,8 @@
  **************************************************************************/
 
 import React from "react";
-import { Fox } from "../models";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
+import { Fox } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type CardBProps = React.PropsWithChildren<Partial<FlexProps> & {
     fx?: Fox;
