@@ -24,7 +24,7 @@ import {
   View,
 } from "@aws-amplify/ui-react";
 export default function UINewFox(props) {
-  const { fx, overrides, ...rest } = props;
+  const { nf, overrides, ...rest } = props;
   const [
     textFieldThreeTwoFourSevenSevenNineEightValue,
     setTextFieldThreeTwoFourSevenSevenNineEightValue,
@@ -37,6 +37,7 @@ export default function UINewFox(props) {
     textFieldThreeTwoFourSevenSevenNineNineValue,
     setTextFieldThreeTwoFourSevenSevenNineNineValue,
   ] = useStateMutationAction("");
+  const iconOnClick = useNavigateAction({ type: "url", url: "/" });
   const vectorThreeTwoFourSevenSevenNineOneOnClick = useNavigateAction({
     type: "url",
     url: "/",
@@ -50,7 +51,7 @@ export default function UINewFox(props) {
     model: Fox,
     schema: schema,
   });
-  const buttonOnMouseUp = useNavigateAction({ type: "url", url: "/" });
+  const buttonOnMouseOut = useNavigateAction({ type: "url", url: "/" });
   return (
     <Flex
       gap="16px"
@@ -90,6 +91,9 @@ export default function UINewFox(props) {
             overflow="hidden"
             position="relative"
             padding="0px 0px 0px 0px"
+            onClick={() => {
+              iconOnClick();
+            }}
             {...getOverrideProps(overrides, "Icon")}
           >
             <Icon
@@ -844,8 +848,8 @@ export default function UINewFox(props) {
           onClick={() => {
             buttonOnClick();
           }}
-          onMouseUp={() => {
-            buttonOnMouseUp();
+          onMouseOut={() => {
+            buttonOnMouseOut();
           }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>

@@ -7,7 +7,7 @@
 import React from "react";
 import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { CollectionProps } from "@aws-amplify/ui-react";
-export declare type UIAllFoxProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
+export declare type UIFoxListProps = React.PropsWithChildren<Partial<CollectionProps<any>> & {
     items?: any[];
     overrideItems?: ({ item: any, index: number }: {
         item: any;
@@ -16,4 +16,4 @@ export declare type UIAllFoxProps = React.PropsWithChildren<Partial<CollectionPr
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;
-export default function UIAllFox(props: UIAllFoxProps): React.ReactElement;
+export default function UIFoxList(props: UIFoxListProps): React.ReactElement;

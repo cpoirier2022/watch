@@ -4,8 +4,9 @@ import { schema } from './schema';
 
 
 
-const { Fox } = initSchema(schema);
+const { Widget, Fox } = initSchema(schema);
 
 export {
+  Widget,
   Fox
 };

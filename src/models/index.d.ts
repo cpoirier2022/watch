@@ -4,8 +4,23 @@ import { ModelInit, MutableModel, PersistentModelConstructor } from "@aws-amplif
 
 
 
+type WidgetMetaData = {
+  readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
 type FoxMetaData = {
   readOnlyFields: 'createdAt' | 'updatedAt';
+}
+
+export declare class Widget {
+  readonly id: string;
+  readonly wid?: string | null;
+  readonly name?: string | null;
+  readonly src?: string | null;
+  readonly createdAt?: string | null;
+  readonly updatedAt?: string | null;
+  constructor(init: ModelInit<Widget, WidgetMetaData>);
+  static copyOf(source: Widget, mutator: (draft: MutableModel<Widget, WidgetMetaData>) => MutableModel<Widget, WidgetMetaData> | void): Widget;
 }
 
 export declare class Fox {

@@ -10,7 +10,7 @@ class NewFox extends Component {
 
   function Put() {
     return (
-      <div className="App"><header className="App-header">
+      <div><header className="App-header">
         <NavBar/>
         <UINewFox style={{ textAlign: "left"}} />
         </header></div>

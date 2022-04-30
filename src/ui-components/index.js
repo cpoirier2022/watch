@@ -6,6 +6,6 @@
 
 export { default as CardB } from "./CardB";
 export { default as UINewFox } from "./UINewFox";
+export { default as UIFoxList } from "./UIFoxList";
 export { default as UIEditFox } from "./UIEditFox";
-export { default as UIAllFox } from "./UIAllFox";
 export { default as NavBar } from "./NavBar";

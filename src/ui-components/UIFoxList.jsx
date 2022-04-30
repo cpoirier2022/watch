@@ -13,7 +13,7 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import CardB from "./CardB";
 import { Collection } from "@aws-amplify/ui-react";
-export default function UIAllFox(props) {
+export default function UIFoxList(props) {
   const { items: itemsProp, overrideItems, overrides, ...rest } = props;
   const itemsDataStore = useDataStoreBinding({
     type: "collection",
@@ -27,11 +27,11 @@ export default function UIAllFox(props) {
       justifyContent="stretch"
       items={items || []}
       {...rest}
-      {...getOverrideProps(overrides, "UIAllFox")}
+      {...getOverrideProps(overrides, "UIFoxList")}
     >
       {(item, index) => (
         <CardB
-          fx={item}
+          cb={item}
           key={item.id}
           {...(overrideItems && overrideItems({ item, index }))}
         ></CardB>

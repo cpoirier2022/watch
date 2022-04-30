@@ -26,7 +26,7 @@ class EditFox extends Component {
         pullData()
       }, []) 
     return (
-      <div className="App"><header className="App-header">
+      <div><header className="App-header">
         <NavBar />
         <UIEditFox fx={cr}/>
         </header></div>

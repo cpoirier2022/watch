@@ -50,7 +50,7 @@ export default function UIEditFox(props) {
     model: Fox,
     schema: schema,
   });
-  const buttonOnMouseUp = useNavigateAction({ type: "url", url: "/" });
+  const buttonOnMouseOut = useNavigateAction({ type: "url", url: "/" });
   useEffect(() => {
     if (
       textFieldThreeTwoFourSevenSevenOneEightValue === "" &&
@@ -300,8 +300,8 @@ export default function UIEditFox(props) {
           onClick={() => {
             buttonOnClick();
           }}
-          onMouseUp={() => {
-            buttonOnMouseUp();
+          onMouseOut={() => {
+            buttonOnMouseOut();
           }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>

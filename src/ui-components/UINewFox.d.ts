@@ -9,7 +9,7 @@ import { EscapeHatchProps } from "@aws-amplify/ui-react/internal";
 import { Fox } from "../models";
 import { FlexProps } from "@aws-amplify/ui-react";
 export declare type UINewFoxProps = React.PropsWithChildren<Partial<FlexProps> & {
-    fx?: Fox;
+    nf?: Fox;
 } & {
     overrides?: EscapeHatchProps | undefined | null;
 }>;

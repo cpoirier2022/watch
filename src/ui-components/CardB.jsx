@@ -12,10 +12,10 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import { Flex, Image, Text } from "@aws-amplify/ui-react";
 export default function CardB(props) {
-  const { fx, overrides, ...rest } = props;
+  const { cb, overrides, ...rest } = props;
   const cardBOnClick = useNavigateAction({
     type: "url",
-    url: `${"/edit/"}${fx?.id}`,
+    url: `${"/edit/"}${cb?.id}`,
   });
   return (
     <Flex
@@ -39,7 +39,7 @@ export default function CardB(props) {
         objectFit="cover"
         position="relative"
         padding="0px 0px 0px 0px"
-        src={fx?.src}
+        src={cb?.src}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
@@ -78,7 +78,7 @@ export default function CardB(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={fx?.name}
+            children={cb?.name}
             {...getOverrideProps(overrides, "Name")}
           ></Text>
           <Text
@@ -98,7 +98,7 @@ export default function CardB(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children={fx?.fid}
+            children={cb?.fid}
             {...getOverrideProps(overrides, "FID0658")}
           ></Text>
         </Flex>
