@@ -18,17 +18,18 @@ class EditFox extends Component {
     useEffect(()=>{
       const pullData = async() => {
         const found = await DataStore.query(Fox, c => c.id("eq", cid));
-        console.log("This list should have one object: " + found);
-        setMe("Should be the thing to edit: " + found[0]);
-        console.log(found[0].name);
+            console.log("This s/b an array object:  ");
+            console.log(found);
+        setMe(found[0]);
+            console.log("Look! the name field: " + found[0].name);
         }
         pullData()
       }, []) 
-      return (
-        <div><p>{cid}</p>
-          <NavBar />
-          <UIEditFox fx={cr}/>
-        </div>
+    return (
+      <div className="App"><header className="App-header">
+        <NavBar />
+        <UIEditFox fx={cr}/>
+        </header></div>
       );
     }
 

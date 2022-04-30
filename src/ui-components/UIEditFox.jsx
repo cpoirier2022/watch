@@ -14,6 +14,7 @@ import {
 } from "@aws-amplify/ui-react/internal";
 import { Fox } from "../models";
 import { schema } from "../models/schema";
+import { useEffect } from "react";
 import {
   Button,
   Divider,
@@ -38,6 +39,7 @@ export default function UIEditFox(props) {
     textFieldThreeTwoFourSevenSevenOneNineValue,
     setTextFieldThreeTwoFourSevenSevenOneNineValue,
   ] = useStateMutationAction("");
+  const iconOnClick = useNavigateAction({ type: "url", url: "/" });
   const buttonOnClick = useDataStoreUpdateAction({
     fields: {
       fid: textFieldThreeTwoFourSevenSevenOneEightValue,
@@ -48,7 +50,31 @@ export default function UIEditFox(props) {
     model: Fox,
     schema: schema,
   });
-  const buttonOnMouseLeave = useNavigateAction({ type: "url", url: "/" });
+  const buttonOnMouseUp = useNavigateAction({ type: "url", url: "/" });
+  useEffect(() => {
+    if (
+      textFieldThreeTwoFourSevenSevenOneEightValue === "" &&
+      fx !== undefined &&
+      fx?.fid !== undefined
+    )
+      setTextFieldThreeTwoFourSevenSevenOneEightValue(fx?.fid);
+  }, [fx]);
+  useEffect(() => {
+    if (
+      textFieldThreeTwoFourSevenSevenOneSevenValue === "" &&
+      fx !== undefined &&
+      fx?.name !== undefined
+    )
+      setTextFieldThreeTwoFourSevenSevenOneSevenValue(fx?.name);
+  }, [fx]);
+  useEffect(() => {
+    if (
+      textFieldThreeTwoFourSevenSevenOneNineValue === "" &&
+      fx !== undefined &&
+      fx?.src !== undefined
+    )
+      setTextFieldThreeTwoFourSevenSevenOneNineValue(fx?.src);
+  }, [fx]);
   return (
     <Flex
       gap="16px"
@@ -88,6 +114,9 @@ export default function UIEditFox(props) {
             overflow="hidden"
             position="relative"
             padding="0px 0px 0px 0px"
+            onClick={() => {
+              iconOnClick();
+            }}
             {...getOverrideProps(overrides, "Icon")}
           >
             <Icon
@@ -111,7 +140,7 @@ export default function UIEditFox(props) {
           </View>
           <Text
             fontFamily="Inter"
-            fontSize="16px"
+            fontSize="10px"
             fontWeight="400"
             color="rgba(13,26,38,1)"
             lineHeight="20px"
@@ -119,11 +148,12 @@ export default function UIEditFox(props) {
             display="flex"
             direction="column"
             justifyContent="flex-start"
+            width="228px"
             shrink="0"
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Edit "
+            children={fx?.id}
             {...getOverrideProps(overrides, "Edit")}
           ></Text>
         </Flex>
@@ -181,7 +211,7 @@ export default function UIEditFox(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="name"
-            placeholder={fx?.name}
+            placeholder="Jane Fox"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -205,7 +235,7 @@ export default function UIEditFox(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="id"
-            placeholder={fx?.fid}
+            placeholder="F00008"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -229,7 +259,7 @@ export default function UIEditFox(props) {
             position="relative"
             padding="0px 0px 0px 0px"
             label="image"
-            placeholder={fx?.src}
+            placeholder="https://art.com/fox-drawing.jpg"
             size="default"
             isDisabled={false}
             labelHidden={false}
@@ -270,8 +300,8 @@ export default function UIEditFox(props) {
           onClick={() => {
             buttonOnClick();
           }}
-          onMouseLeave={() => {
-            buttonOnMouseLeave();
+          onMouseUp={() => {
+            buttonOnMouseUp();
           }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
