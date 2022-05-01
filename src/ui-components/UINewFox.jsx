@@ -51,7 +51,7 @@ export default function UINewFox(props) {
     model: Fox,
     schema: schema,
   });
-  const buttonOnMouseOut = useNavigateAction({ type: "url", url: "/" });
+  const buttonOnMouseLeave = useNavigateAction({ type: "url", url: "/" });
   return (
     <Flex
       gap="16px"
@@ -848,8 +848,8 @@ export default function UINewFox(props) {
           onClick={() => {
             buttonOnClick();
           }}
-          onMouseOut={() => {
-            buttonOnMouseOut();
+          onMouseLeave={() => {
+            buttonOnMouseLeave();
           }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
