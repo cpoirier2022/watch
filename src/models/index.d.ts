@@ -28,6 +28,7 @@ export declare class Fox {
   readonly fid?: string | null;
   readonly name?: string | null;
   readonly src?: string | null;
+  readonly user?: string | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Fox, FoxMetaData>);

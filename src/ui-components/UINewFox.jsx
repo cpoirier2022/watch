@@ -8,6 +8,7 @@
 import React from "react";
 import {
   getOverrideProps,
+  useAuth,
   useDataStoreCreateAction,
   useNavigateAction,
   useStateMutationAction,
@@ -25,6 +26,7 @@ import {
 } from "@aws-amplify/ui-react";
 export default function UINewFox(props) {
   const { nf, overrides, ...rest } = props;
+  const authAttributes = useAuth().user?.attributes ?? {};
   const [
     textFieldThreeTwoFourSevenSevenNineEightValue,
     setTextFieldThreeTwoFourSevenSevenNineEightValue,
@@ -47,11 +49,12 @@ export default function UINewFox(props) {
       fid: textFieldThreeTwoFourSevenSevenNineEightValue,
       name: textFieldThreeTwoFourSevenSevenNineSevenValue,
       src: textFieldThreeTwoFourSevenSevenNineNineValue,
+      user: authAttributes["sub"],
     },
     model: Fox,
     schema: schema,
   });
-  const buttonOnMouseLeave = useNavigateAction({ type: "url", url: "/" });
+  const buttonOnMouseUp = useNavigateAction({ type: "url", url: "/" });
   return (
     <Flex
       gap="16px"
@@ -848,8 +851,8 @@ export default function UINewFox(props) {
           onClick={() => {
             buttonOnClick();
           }}
-          onMouseLeave={() => {
-            buttonOnMouseLeave();
+          onMouseUp={() => {
+            buttonOnMouseUp();
           }}
           {...getOverrideProps(overrides, "Button")}
         ></Button>
