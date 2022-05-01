@@ -16,7 +16,15 @@ import { schema } from "../models/schema";
 import { Flex, Icon, Image, Text, View } from "@aws-amplify/ui-react";
 export default function CardB(props) {
   const { cb, overrides, ...rest } = props;
-  const cardBOnClick = useNavigateAction({
+  const imageOnClick = useNavigateAction({
+    type: "url",
+    url: `${"/edit/"}${cb?.id}`,
+  });
+  const nameOnClick = useNavigateAction({
+    type: "url",
+    url: `${"/edit/"}${cb?.id}`,
+  });
+  const fIDZeroSixFiveEightOnClick = useNavigateAction({
     type: "url",
     url: `${"/edit/"}${cb?.id}`,
   });
@@ -34,9 +42,6 @@ export default function CardB(props) {
       position="relative"
       padding="0px 0px 0px 0px"
       backgroundColor="rgba(255,255,255,1)"
-      onClick={() => {
-        cardBOnClick();
-      }}
       {...rest}
       {...getOverrideProps(overrides, "CardB")}
     >
@@ -48,6 +53,9 @@ export default function CardB(props) {
         position="relative"
         padding="0px 0px 0px 0px"
         src={cb?.src}
+        onClick={() => {
+          imageOnClick();
+        }}
         {...getOverrideProps(overrides, "image")}
       ></Image>
       <Flex
@@ -90,6 +98,9 @@ export default function CardB(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children={cb?.name}
+            onClick={() => {
+              nameOnClick();
+            }}
             {...getOverrideProps(overrides, "Name")}
           ></Text>
           <Text
@@ -111,6 +122,9 @@ export default function CardB(props) {
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
             children={cb?.fid}
+            onClick={() => {
+              fIDZeroSixFiveEightOnClick();
+            }}
             {...getOverrideProps(overrides, "FID0658")}
           ></Text>
         </Flex>
